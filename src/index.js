@@ -40,7 +40,7 @@ app.get("/signup", (req, res) => {
 
 
 // Static file (allows the application to access the files of public package without the need for additional routing)
-app.use(express.static("public"));
+app.use(express.static("front"));
 
 
 // Sign up User
@@ -76,11 +76,11 @@ app.post("/signup", async (req, res) => { //accessing the signup file using asyn
             const randomPassword = generateRPassword();
 
             //email verification
+            /*
             const transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth:{
-                    user:"silverdude47@gmail.com",
-                    pass:"fvts oczk pvbt hxrt"
+                    
              
                 }
             
@@ -93,6 +93,7 @@ app.post("/signup", async (req, res) => { //accessing the signup file using asyn
                 subject:"password",
                 text:"your password is "+randomPassword,
             })
+            */
 
             //inserting data into the data base and not executing the following code until it resolves(await)
             const userdata = await collection.insertMany(data); 
