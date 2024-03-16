@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!---->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Login</title>
+    <link rel="icon" href="logo orange.png" type="image/x-icon">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container main">
+        <div class="row">
+         
+            <div class="col-md-6 side-image">
+                       
+                <!-------------      image     ------------->
+               
+                
+                <img src="logo noir.png" alt="">
+                
+              
+                
+            </div>
+
+            <div class="col-md-6 right">
+            
+                
+                <div class="input-box">
+                   
+                   <header><h2>Sign In</h2></header>
+                   <div class="input-field">
+                        <input type="text" class="input" id="email" required="" autocomplete="off">
+                        <label for="text">Firstname</label> 
+                    </div> 
+                   <div class="input-field">
+                        <input type="password" class="input" id="pass" required="">
+                        <label for="text">Lastname</label>
+                    </div> 
+                    <div class="input-field">
+                        <input type="password" class="input" id="pass" required="">
+                        <label for="email">Email</label>
+                    </div> 
+                    <p>What's your date of birth</p>
+                    <div class="input-container">
+                        <div class="input-field">
+                            <!-- Day -->
+                            <input type="text" class="input" id="day" required="" maxlength="2" pattern="\d{1,2}">
+                            <label for="day">Day</label>
+                        </div>
+                    
+                        <div class="input-field">
+                            <!-- Month -->
+                            <input type="text" class="input" id="month" required="" maxlength="2" pattern="\d{1,2}">
+                            <label for="month">Month</label>
+                        </div>
+                    
+                        <div class="input-field">
+                            <!-- Year -->
+                            <input type="text" class="input" id="year" required="" maxlength="4" pattern="\d{4}">
+                            <label for="year">Year</label>
+                        </div>
+                        
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input" id="pass" required="">
+                        <label for="text">Nationnality</label>
+                    </div> 
+                    <div >
+                        <label for="">Languge</label>
+                <select id="language">
+                <option value="anglais"> <img class="flag-icon" src="usa flag.svg" alt="USA Flag"> anglais</option>
+                <option value="arabe"> <img class="flag-icon" src="favicon tunisie.ico" alt="arabe Flag"> arabe</option>
+                <option value="france"> <img class="flag-icon" src="france flag.jpg" alt="France Flag"> France</option>
+                <option value="allemend"> <img class="flag-icon" src="allmagne flag.jpg" alt="allemend Flag"> allemend</option>
+                <!-- Ajoutez d'autres options avec des drapeaux selon vos besoins -->
+                </select>
+                        <label for="">Level:</label>
+    <select id="Level">
+        <option value="A1"> A1</option>
+        <option value="A2"> A2</option>
+        <option value="B1">B1</option>
+        <option value="B2"> B2</option>
+        <option value="C1"> C1</option>
+        <option value="C2"> C2</option>
+        <!-- Ajoutez d'autres options avec des drapeaux selon vos besoins -->
+    </select>
+    
+                
+                    
+   
+                        
+                            
+                    </div>
+                   <div class="input-field">
+                        
+                        <input type="submit" class="submit" value="Sign In">
+                   </div> 
+                   <div class="signin">
+                    <span>Already have an account? <a href="login.html">Log in here</a></span>
+                   </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
