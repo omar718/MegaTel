@@ -1,0 +1,500 @@
+video { 
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	transform: translateX(-50%) translateY(-50%);
+	background: url('images/poster.jpg') no-repeat;
+	background-size: cover;
+	transition: 1s opacity;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar{
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon{
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+.translate{
+padding-right: 100px;
+}
+.logo{
+    width: 50px;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px
+}
+
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
+}
+
+.search{
+    width: 330px;
+    float: left;
+    margin-left: 270px;
+    padding-left:10px;
+}
+
+.srch{
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #ff7200;
+    margin-top: 13px;
+    color: #fff;
+    border-right: none;
+    font-size: 16px;
+    float: left;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn{
+    width: 100px;
+    height: 40px;
+    background: #ff7200;
+    border: 2px solid #ff7200;
+    margin-top: 13px;
+    color: #fff;
+    font-size: 15px;
+    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.btn:hover{
+    color: #000;
+}
+
+.btn:focus{
+    outline: none;
+}
+
+.srch:focus{
+    outline: none;
+}
+
+.content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: #fff;
+    position: relative;
+}
+
+.content .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: Arial;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+}
+
+.content h1{
+    font-family: 'Times New Roman';
+    font-size: 50px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content .cn{
+    width: 160px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+    
+}
+
+.content .cn a{
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+
+.cn:hover{
+    background-color: #fff;
+}
+
+.content span{
+    color: #ff7200;
+    font-size: 65px
+}
+
+.form{
+    width: 250px;
+    height: 300px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top: -20px;
+    left: 870px;
+    transform: translate(0%,-5%);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+}
+
+.form input{
+    width: 240px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #ff7200;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+::placeholder{
+    color: #fff;
+    font-family: Arial;
+}
+
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnn:hover{
+    background: #fff;
+    color: #ff7200;
+}
+.btnn a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.form .link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+.form .link a{
+    text-decoration: none;
+    color: #ff7200;
+}
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+.icons ion-icon{
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+    color: #ff7200;
+}
+
+/*"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
+.clients-Fwi {
+    align-items: center;
+    background-color: #516079;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 3.011rem 4.9rem 1.322rem 4.9rem;
+    width: 100%;
+  
+    .clients-nAx {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      margin: 0rem 59.5rem 1.111rem 46.5rem;
+      width: calc(100% - 106rem);
+  
+      .section-title-UpU {
+        color: #2c2323;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 3.5rem;
+        font-weight: 600;
+        line-height: 0.8750587463;
+        margin-bottom: 1.1569rem;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .description-1Jc {
+        color: #2c2424;
+        flex-shrink: 0;
+        font-family: Inter, 'Source Sans Pro';
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 0.6682266998;
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+    .clients-logos-iyi {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      height: 8rem;
+      margin-right: 13rem;
+  
+      .auto-group-foxz-TwJ {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        height: 100%;
+        padding: 0.75rem 7.492rem 0.75rem 0rem;
+  
+        .logo-Pa4 {
+          border-radius: 0.5569rem;
+          box-sizing: border-box;
+          flex-shrink: 0;
+          height: calc(100% - 3.1589rem);
+          margin: 1.579rem 7.492rem 1.579rem 0rem;
+          padding: 0.278rem 0.278rem 0.278rem 0.278rem;
+          width: 3.3411rem;
+  
+          .logo-gJG {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+          }
+        }
+        .logo-S2Y {
+          border-radius: 0.5569rem;
+          flex-shrink: 0;
+          height: 6.5rem;
+          margin-right: 7.4918rem;
+          object-fit: cover;
+          vertical-align: top;
+          width: 16.8rem;
+        }
+        .logo-XZn {
+          border-radius: 0.5569rem;
+          flex-shrink: 0;
+          height: 5rem;
+          margin-right: 7.4918rem;
+          object-fit: cover;
+          vertical-align: top;
+          width: 14.8rem;
+        }
+        .logo-ffz {
+          border-radius: 0.5569rem;
+          flex-shrink: 0;
+          height: 6.1rem;
+          object-fit: cover;
+          vertical-align: top;
+          width: 14.7rem;
+        }
+      }
+      .logo-Cvp {
+        border-radius: 0.5569rem;
+        flex-shrink: 0;
+        height: 8rem;
+        margin-right: 7.4918rem;
+        object-fit: cover;
+        vertical-align: top;
+        width: 17.4rem;
+      }
+      .logo-KEk {
+        border-radius: 0.5569rem;
+        flex-shrink: 0;
+        height: 6.8rem;
+        object-fit: cover;
+        vertical-align: top;
+        width: 16.7rem;
+      }
+    }
+  }
+  
+
+  .auto-group-pwv6-gDA {
+    flex-shrink: 0;
+    height: 106.4rem;
+    position: relative;
+    width: 159.7rem;
+  
+    .frame-2-ChJ {
+      height: 20.9411rem;
+      left: 11rem;
+      position: absolute;
+      top: 19rem;
+      width: 119.8rem;
+  
+      .text-73a {
+        display: flex;
+        flex-direction: column;
+        height: 15.1137rem;
+        width: 100%;
+  
+        .megatel-services-nous-sommes-une-entreprise-internationale-de-premier-plan-dXi {
+          color: rgba(77, 77, 77, 0.9800000191);
+          flex-shrink: 0;
+          font-family: Inter, 'Source Sans Pro';
+          font-size: 2.5rem;
+          font-weight: 600;
+          line-height: 2.116051178;
+          margin-bottom: 1.1137rem;
+          max-width: 70.5rem;
+  
+          .megatel-services-nous-sommes-une-entreprise-internationale-de-premier-plan-dXi-sub-0 {
+          }
+          .megatel-services-nous-sommes-une-entreprise-internationale-de-premier-plan-dXi-sub-1 {
+            color: #f1895c;
+            font-family: Inter, 'Source Sans Pro';
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 2.116051178;
+          }
+        }
+        .mega-tel-propose-une-gamme-complte-de-services-de-gestion-dappels-entrants-et-dexternalisation-sur-mesure-pour-les-entreprises-couvrant-divers-aspects-tels-que-le-service-client-la-prise-de-commandes-les-ventes-la-publicit-et-bien-plus-encore-Sda {
+          color: #4d4d4d;
+          flex-shrink: 0;
+          font-family: Inter, 'Source Sans Pro';
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 1.1137111664;
+          max-width: 119.8rem;
+        }
+      }
+    }
+    .rectangle-74-G6p {
+      background-color: #d9d9d9;
+      height: 106.4rem;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 146.9rem;
+    }
+    .vector-1-Px8 {
+      height: 0.1526rem;
+      left: 11rem;
+      object-fit: contain;
+      position: absolute;
+      top: 12.5974rem;
+      vertical-align: top;
+      width: 23.2rem;
+    }
+    .divider-jFJ {
+      background-color: rgba(102, 102, 102, 0.25);
+      height: 0.1rem;
+      left: 12.5rem;
+      position: absolute;
+      top: 3.4rem;
+      width: 121.8rem;
+    }
+    .our-services-4Ha {
+      color: #2e3244;
+      font-family: Inter, 'Source Sans Pro';
+      font-size: 3.6rem;
+      font-weight: 600;
+      height: 5.3rem;
+      left: 11rem;
+      line-height: 1.4694799847;
+      position: absolute;
+      top: 7.3rem;
+      white-space: nowrap;
+      width: 22.5rem;
+    }
+    .section-vidoe-xtk {
+      background-color: #424242;
+      height: 41.5rem;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 43.6rem;
+      width: 156.3rem;
+    }
+  }
+  /*282*/
