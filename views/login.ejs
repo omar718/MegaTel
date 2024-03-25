@@ -28,14 +28,15 @@
             
                 
                 <div class="input-box">
-                   
+                
                    <header><h2>LOGIN</h2></header>
+                   <form action="/login" method="POST">
                    <div class="input-field">
-                        <input type="text" class="input" id="email" required="" autocomplete="off">
+                        <input type="text" class="input" id="email" name="email" required="" autocomplete="off">
                         <label for="text">username</label> 
                 
                    <div class="input-field">
-                        <input type="password" class="input" id="pass" required="">
+                        <input type="password" class="input" name="password" id="pass" required="">
                         <label for="password">password</label>
                     </div> 
                     
@@ -44,10 +45,16 @@
                 <div class="input-field">
                         
                         <input type="submit" class="submit" value="Login">
+                        <% if (messages.error) { %>
+                            <div class="alert alert-danger">
+                              <strong><%= messages.error %> </strong>
+                            </div>
+                          <% } %> 
                    </div> 
                    <div class="signin">
                     <span>you don’t have an account ? <a href="signup">sign up here</a></span>
                    </div>
+                </form>
                 </div> 
             </div>
         </div>
