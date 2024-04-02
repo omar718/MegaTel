@@ -11,11 +11,12 @@ function initialize(passport, getUserByEmail, getUserById){
         try{
         const user = await getUserByEmail(email)
         if (!user){
-            return done(null, false, {message: "No user found with that email"})
-        }
+            return done(null, false, {message: "No user found with that email"})} // return done is used to signal the completion of 
+                                                                                // the authentification process
             const passwordMatched = await bcrypt.compare(password, user.password);
             if(passwordMatched){
-                return done(null, user)
+                return done(null, user) //done uses 2 parameters : null refers to no errors during auth and user is object authentified
+                                        // if there is an error like the first example false refers to no authentification
             } else{
                 return done (null, false, {message: "Password Incorrect"})
             }

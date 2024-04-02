@@ -58,25 +58,14 @@ app.use(passport.session());
 
 app.use(methodOverride("_method"));
 
-//define the routes(when you type localhost:5000 you get the specific login page and not 404)
-app.get("", (req, res) => {
-    res.render("login");
-});
-app.get("/login", (req, res) => {
-    res.render("login");
-});
-app.get("/signup", (req, res) => {
-    res.render("signup");
-});
-app.get("/home", (req, res) => {
-    res.render("home");//besides the home page we will also render the first name as a username 
-});
+
 //{username: req.data.firstName}
 
 
 // Static file (allows the application to access the files of public package without the need for additional routing)
 app.use(express.static("front"));
 
+//error messages configuration
 initializePassport(
     passport,
     email => collection.findOne({ email: email }), // Use exec() to return a promise
@@ -85,10 +74,8 @@ initializePassport(
 
 // Sign up User
 // Configuring the register post functionality
-app.post("/signup", async (req, res) => { //accessing the signup file using async function that has 2 parmeters req for the incoming data and res 
-                                            //for sending
-
-    /*
+app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the signup file using async function that has
+                                                                //2 parmeters req for the incoming data and res for sending
     try{
         //const { firstName, lastName, email, dateOfBirth, nationality, language, level } = req.body;
 
@@ -144,12 +131,12 @@ app.post("/signup", async (req, res) => { //accessing the signup file using asyn
             password: hashedPassword // Replace the original password with the hashed one
         }
     
-        /* Check if the username already exists in the database
-        const existingUser = await collection.findOne({ name: data.name });
+        // Check if the email already exists in the database
+        const existingUser = await collection.findOne({ email: data.email });
         if (existingUser) {
-            res.send('User already exists. Please choose a different username.');}
-            else {
-        */
+            req.flash("error","Email already exists. Please choose another email")
+            return res.redirect('signup')}
+        else {
             
 
             
@@ -176,7 +163,7 @@ app.post("/signup", async (req, res) => { //accessing the signup file using asyn
             //inserting data into the data base and not executing the following code until it resolves(await)
             const userdata = await collection.insertMany(data); 
             res.redirect('login');
-            console.log(userdata + "you should recieve an email with the password"+ randomPassword);
+            console.log(userdata + "you should recieve an email with the password "+ randomPassword);
 
     
             /*email error message (not  used)
@@ -186,19 +173,19 @@ app.post("/signup", async (req, res) => { //accessing the signup file using asyn
             }).catch(error=>{
                 return res.status(500).json ({error})
             })
-
+        */
         }}
         catch (error) {
             console.error(error);
             res.status(500).send('Internal Server Error');
 
         }
-        */
+        
 });
 
 // Login user 
 
-app.post("/login", passport.authenticate("local", {
+app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/login",
     failureFlash: true
@@ -224,7 +211,19 @@ app.post("/login", async (req, res) => {
     }
 });
 */
-
+//define the routes(when you type localhost:5000 you get the specific login page and not 404)
+app.get("",checkNotAuthenticated, (req, res) => {
+    res.render("login");
+});
+app.get("/login",checkNotAuthenticated, (req, res) => {
+    res.render("login");
+});
+app.get("/signup",checkNotAuthenticated, (req, res) => {
+    res.render("signup",{messages:req.flash()}); //besides the signup form we will also render the signup errors when they occur
+});
+app.get("/home",checkAuthenticated, (req, res) => {
+    res.render("home");//besides the home page we will also render the first name as a username 
+});
 
 //authentification
 function checkAuthenticated(req, res, next){
