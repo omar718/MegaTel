@@ -27,6 +27,8 @@ const session = require("express-session"); //importing express-session module
 
 const methodOverride = require("method-override"); //importing method-override module
 
+const fs = require('fs');//fs=file system this module is required to read to html file related to the email verification
+
 
 
 
@@ -59,7 +61,7 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 
-//{username: req.data.firstName}
+//
 
 
 // Static file (allows the application to access the files of public package without the need for additional routing)
@@ -68,8 +70,8 @@ app.use(express.static("front"));
 //error messages configuration
 initializePassport(
     passport,
-    email => collection.findOne({ email: email }), // Use exec() to return a promise
-    id => collection.findOne({ id: id }) // Use exec() to return a promise
+    email => collection.findOne({ email: email }), // Use exec() which is "{}" to return a promise that the function understands
+    id => collection.findOne({ id: id }), // Use exec() which is "{}" to return a promise that the function understands 
 );
 
 // Sign up User
@@ -137,29 +139,40 @@ app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the 
             req.flash("error","Email already exists. Please choose another email")
             return res.redirect('signup')}
         else {
-            
-
-            
             //email verification
-            /*
-            const transporter = nodemailer.createTransport({
-                service: "gmail",
-                auth:{
-                    
-             
+            // Read the mail file that will be sent asynchronously
+            fs.readFile('front/mail.html', 'utf8', async (err, mail) => {
+                if (err) {
+                    console.error('Error reading HTML file:', err);
+                    return;
                 }
             
+                // Replace the placeholders{} with their actual values
+                const emailContent = mail.replace('{{password}}', randomPassword).replace('{{name}}', data.firstName).
+                replace('{{id}}', data.id);
+                const transporter = nodemailer.createTransport({
+                    service: "gmail",
+                    auth:{
+                        user:process.env.USER,
+                        pass:process.env.APP_PASSWORD,
+                    }
+                
+                });
+                // Send the email with the updated HTML content
+                let message = await transporter.sendMail({
+                    from: "Mega Tel",
+                    to: data.email,
+                    subject: "User credentials",
+                    html: emailContent,
+                    attachments: [{
+                        filename: 'logo noir2.png',
+                        path: __dirname +'/../front/logo noir2.png',
+                        cid: 'logo' //same cid value as in the html img src
+                    }]
+                    
+                });
             });
-
-
-            let message = await transporter.sendMail({
-                from:"silverdude47@gmail.com",
-                to: data.email,
-                subject:"password",
-                text:"your password is "+randomPassword,
-            })
-            */
-
+    
             //inserting data into the data base and not executing the following code until it resolves(await)
             const userdata = await collection.insertMany(data); 
             res.redirect('login');
@@ -190,6 +203,7 @@ app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true
 }))
+
 /*
 app.post("/login", async (req, res) => {
     try {
@@ -222,7 +236,7 @@ app.get("/signup",checkNotAuthenticated, (req, res) => {
     res.render("signup",{messages:req.flash()}); //besides the signup form we will also render the signup errors when they occur
 });
 app.get("/home",checkAuthenticated, (req, res) => {
-    res.render("home");//besides the home page we will also render the first name as a username 
+    res.render("home",{name: req.user.firstName});//besides the home page we will also render the first name as a username 
 });
 
 //authentification
@@ -235,7 +249,7 @@ function checkAuthenticated(req, res, next){
 
 function checkNotAuthenticated(req, res, next){
     if(req.isAuthenticated()){
-        return res.redirect("/")
+        return res.redirect("/home")
     }
     next()
 }
