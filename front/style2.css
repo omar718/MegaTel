@@ -1,0 +1,218 @@
+/* ===== Google Font Import - Poformsins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('contact1.jpg');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(5px);
+}
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999; /* Ensure it appears above other elements */
+}
+
+.home-button img {
+    width: 50px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Adjust the margins as needed */
+    border-radius: 10%; /* Apply border radius for rounded corners */
+     /* Apply a background color if needed */
+    padding: 0px; /* Add padding around the image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+.label {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 2px); 
+    color: hsl(228, 57%, 28%);;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-button:hover .label {
+    display: block; /* Show the label on hover */
+    color: white;
+}
+
+.container{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 440px;
+    width: 200%;
+    transition: height 0.2s ease;
+
+}
+
+
+.container .form{
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+}
+
+.container.active .login{
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.container .signup{
+    opacity: 0;
+    transition: opacity 0.09s ease;
+}
+.container.active .signup{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.container.active .forms{
+    height: 600px;
+}
+.container .form .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color:  hsl(25, 83%, 53%);
+    border-radius: 25px;
+}
+
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.input-field input:is(:focus, :valid){
+    border-bottom-color:  hsl(25, 83%, 53%);;
+}
+
+.input-field .uil{
+    position: absolute;
+    top: 50%;
+    margin-right: 10px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ i{
+    color:  hsl(25, 83%, 53%);;
+}
+
+.input-field i.icon{
+    left:0;
+}
+.input-field .eye{
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    cursor: pointer;
+}
+.input-field .eye #hide1{
+    display: none;
+}
+
+.form .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    margin-right: 10px;
+    accent-color: hsl(25, 83%, 53%);;;
+}
+
+.form .text{
+    color:hsl(228, 57%, 28%);
+    font-size: 14px;
+}
+
+.form a.text{
+    color:  hsl(25, 83%, 53%);;;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}
+
+.form .button{
+    margin-top: 35px;
+}
+
+.form .button input{
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background-color: hsl(25, 83%, 53%);;;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input:hover{
+    background-color:   hsl(25, 83%, 53%);;;
+}
+
+.form .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}

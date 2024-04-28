@@ -1,0 +1,344 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('contact1.JPG');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(5px);
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: transparent;
+}
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999; /* Ensure it appears above other elements */
+}
+
+.home-button img {
+    width: 50px; /* Adjust the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Adjust the margins as needed */
+    border-radius: 10%; /* Apply border radius for rounded corners */
+     /* Apply a background color if needed */
+    padding: 0px; /* Add padding around the image */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+.label {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 2px);
+    color: hsl(228, 57%, 28%);; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home-button:hover .label {
+    display: block; /* Show the label on hover */
+    color: white;
+}
+
+/* White card for the form elements */
+.form.signup {
+    background-color: #f9f9f9; /* Light gray background color */
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+    background-size: 20px 20px; /* Size of the pattern */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for the title within the form */
+.title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: hsl(25, 83%, 53%);;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* Input fields style */
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field select {
+    width: 100%;
+    padding: 12px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+    font-size: 1rem; 
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and box-shadow */
+}
+
+/* Icon style within input fields */
+.input-container-3 .input-field i {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust the left position of the icon */
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px; /* Decreased font size for the icon */
+    transition: color 0.3s; /* Smooth transition for icon color */
+}
+
+/* On focus styles for inputs */
+.input-field input:focus,
+.input-field select:focus {
+    border-color:  hsl(25, 83%, 53%); /* Change border color on focus */
+    box-shadow: 0 0 0 3px  hsl(25, 83%, 53%); /* Add a subtle box-shadow on focus */
+}
+
+/* On hover styles for icons */
+.input-field:hover i {
+    color: hsl(25, 83%, 53%);; /* Change icon color on hover */
+}
+
+/* Button styling within the form */
+.input-field.button input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the button */
+.input-field.button input[type="submit"]:hover {
+    background-color: hsl(25, 83%, 53%);;
+}
+/* Styles for the login link at the bottom of the form */
+.login-signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-signup .text a {
+    color:  hsl(25, 83%, 53%);
+    text-decoration: none;
+}
+
+.login-signup .text a:hover {
+    text-decoration: underline;
+}
+.select-box input:focus {
+    border: .1rem solid var( hsl(25, 83%, 53%));
+}
+
+.selected-option {
+   
+    border-radius: .5rem;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selected-option div{
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.selected-option div::after{
+    position: absolute;
+    content: "";
+    right: .8rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: .8rem;
+    height: .8rem;
+    border-right: .12rem solid var(--primary);
+    border-bottom: .12rem solid var(--primary);
+    transition: .2s;
+}
+
+.selected-option div.active::after{
+    transform: translateY(-50%) rotate(225deg);
+}
+
+.select-box .options {
+    position: absolute;
+    padding: 0%;
+    top: 4rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: .5rem;
+    display: none;
+}
+
+.select-box .options.active {
+    display: block;
+    margin-top: 20px;
+    right: 0px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: .5rem;
+    overflow:visible;
+
+}
+
+.select-box .options::before {
+   display: flex;
+    content: "";
+    left: 1rem;
+    top: -1.2rem;
+    width: 0;
+    height: 0;
+    border: .6rem solid transparent;
+}
+
+.select-box ol {
+    width: 100%;
+    list-style: none;
+    max-height: 23rem;
+    overflow: overlay;
+  position: absolute;
+  background-color:#fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.select-box ol::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.select-box ol::-webkit-scrollbar-thumb {
+    width: 0.4rem;
+    height: 3rem;
+    background-color: #ccc;
+    border-radius: .4rem;
+}
+
+.select-box ol li {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.select-box ol li.hide {
+    display: none;
+}
+
+.select-box ol li:not(:last-child) {
+    border-bottom: .1rem solid #eee;
+}
+
+.select-box ol li:hover {
+    background-color: lightcyan;
+}
+
+.select-box ol li .country-name {
+    margin-left: .4rem;
+}
+/* Responsive styling for smaller screens */
+@media (max-width: 576px) {
+    .form.signup {
+        padding: 20px;
+        margin: 10px;
+        max-width: 90%;
+    }
+}
+
+/* Additional input container styles */
+.input-container,
+.input-container-2,
+.input-container-3 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-field input {
+    width: 105%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-field input[type="file"] {
+    /* Hide the default file input button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background: none;
+    font-size: 10px;
+    padding: 8px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-field input[type="file"]:focus {
+    outline: none;
+    border-color: hsl(25, 83%, 53%); /* Change border color on focus if desired */
+}
+
+.input-field input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /* Hide the default button in Chrome */
+}
+
+.input-field input[type="file"]::before {
+    content: 'Upload Photo'; /* Display custom button text */
+    display: inline-block;
+    background: hsl(25, 100%, 65%);; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 8px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-field input[type="file"]::before:hover {
+    background:  hsl(25, 83%, 53%);; /* Change button background color on hover if desired */
+}

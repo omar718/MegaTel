@@ -11,13 +11,49 @@ connect.then(() => {
 
 // Creating Schema (colomons of the database)
 const SignUpschema = new mongoose.Schema({
-    name: {
+    id: {
+        type: String,
+        required: true,
+        unique: true // Assure que chaque email est unique dans la base de données
+    },
+    firstName: {
         type:String,
+        required: true //option qui spécifie que le champ correspondant est obligatoire
+    },
+    lastName: {
+        type:String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    dateOfBirth: {
+        
+            type: Date,
+            required: true
+        
+    },
+    nationality: {
+        type: String,
+        required: true
+    },
+    language: {
+        type: String,
+        required: true
+    },
+    level: {
+        type: String,
         required: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        unique: true // Assure que chaque email est unique dans la base de données
+    },
+    picPath:{
+        type:String,
+        required:true
     }
 });
 
