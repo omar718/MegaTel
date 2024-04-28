@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo orange.png" type="image/x-icon">
+
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet"
+href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style2.css">
+
+    <title>Login & Registration Form</title>
+</head>
+<body>
+    <a href="homepage.html" class="home-button">
+        <img src="log.png" alt="Home">
+        <span class="label">Home</span>
+    </a>
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your email or your id" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <i class="uil uil-lock icon"></i>
+                        <input type="password" class="password"placeholder="Enter your password" id="myInput"required>
+                        <span class="eye" onclick="myFunction()">
+                            <i id="hide1" class="uil uil-eye"></i>
+                            <i id="hide2" class="uil uil-eye-slash showHidePw"></i>
+                        </span>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck"class="text">Remember me</label>
+                        </div>
+
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Don't Have An Account?
+                        <a href="signup.ejs.html" class="textsignup-link" style="color:hsl(25, 83%, 53%);;">SignUp</a>
+                    </span>
+                </div>
+            </div>
+
+
+     <script>
+            function myFunction() {
+                    var x = document.getElementById("myInput")
+                    var y = document.getElementById("hide1")
+                    var z = document.getElementById("hide2")
+                    if (x.type === 'password') {
+                        x.type="text";
+                        y.style.display="block";
+                        z.style.display="none";
+                    }
+                    else{
+                        x.type="password";
+                        y.style.display="none";
+                        z.style.display="block";
+                    }
+                }
+     </script>
+</body>
+</html>

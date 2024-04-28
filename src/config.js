@@ -50,6 +50,10 @@ const SignUpschema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true // Assure que chaque email est unique dans la base de données
+    },
+    picPath:{
+        type:String,
+        required:true
     }
 });
 

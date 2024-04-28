@@ -1,5 +1,25 @@
 /* ===== Google Font Import - Poformsins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Custom styling for Google Translate widget */
+#google_translate_element {
+    margin-bottom: 20px; /* Example margin */
+}
+
+/* Example: Change the background color of the dropdown */
+.goog-te-combo {
+    background-color: #f8f9fa; /* Example background color */
+}
+
+/* Example: Change the text color of the dropdown options */
+.goog-te-combo option {
+    color: #333; /* Example text color */
+}
+.translate-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999; /* Ensure it's above other elements */
+}
 
 *{
     margin: 0;
@@ -13,39 +33,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('contact1.jpg');
-    background-size: cover;
-    background-position: center;
-    backdrop-filter: blur(5px);
-}
-.home-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 9999; /* Ensure it appears above other elements */
-}
-
-.home-button img {
-    width: 50px; /* Adjust the width of the image */
-    height: auto; /* Maintain aspect ratio */
-    margin: 10px; /* Adjust the margins as needed */
-    border-radius: 10%; /* Apply border radius for rounded corners */
-     /* Apply a background color if needed */
-    padding: 0px; /* Add padding around the image */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
-}
-.label {
-    display: none; 
-    position: absolute;
-    top: calc(100% + 2px); 
-    color: hsl(228, 57%, 28%);;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.home-button:hover .label {
-    display: block; /* Show the label on hover */
-    color: white;
+    background-color: #4070f4;
 }
 
 .container{
@@ -107,7 +95,7 @@ body{
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color:  hsl(25, 83%, 53%);
+    background-color: #4070f4;
     border-radius: 25px;
 }
 
@@ -119,6 +107,7 @@ body{
 }
 
 .input-field input{
+    position: absolute;
     height: 100%;
     width: 100%;
     padding: 0 35px;
@@ -128,17 +117,15 @@ body{
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
-    background-color: transparent;
 }
 
 .input-field input:is(:focus, :valid){
-    border-bottom-color:  hsl(25, 83%, 53%);;
+    border-bottom-color: #4070f4;
 }
 
-.input-field .uil{
+.input-field i{
     position: absolute;
     top: 50%;
-    margin-right: 10px;
     transform: translateY(-50%);
     color: #999;
     font-size: 23px;
@@ -146,20 +133,16 @@ body{
 }
 
 .input-field input:is(:focus, :valid) ~ i{
-    color:  hsl(25, 83%, 53%);;
+    color: #4070f4;
 }
 
 .input-field i.icon{
     left:0;
 }
-.input-field .eye{
-    position: absolute;
-    top: 25px;
-    right: 15px;
+.input-field i.showHidePw{
+    right: 0;
     cursor: pointer;
-}
-.input-field .eye #hide1{
-    display: none;
+    padding: 10px;
 }
 
 .form .checkbox-text{
@@ -176,16 +159,16 @@ body{
 
 .checkbox-content input{
     margin-right: 10px;
-    accent-color: hsl(25, 83%, 53%);;;
+    accent-color: #4070f4;
 }
 
 .form .text{
-    color:hsl(228, 57%, 28%);
+    color: #333;
     font-size: 14px;
 }
 
 .form a.text{
-    color:  hsl(25, 83%, 53%);;;
+    color: #4070f4;
     text-decoration: none;
 }
 .form a:hover{
@@ -203,13 +186,13 @@ body{
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: hsl(25, 83%, 53%);;;
+    background-color: #4070f4;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .button input:hover{
-    background-color:   hsl(25, 83%, 53%);;;
+    background-color: #265df2;
 }
 
 .form .login-signup{

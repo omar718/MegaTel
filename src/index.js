@@ -29,6 +29,7 @@ const methodOverride = require("method-override"); //importing method-override m
 
 const fs = require('fs');//fs=file system this module is required to read to html file related to the email verification
 
+const multer = require("multer"); //this module is used for for the pictures upload
 
 
 
@@ -61,9 +62,6 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 
-//
-
-
 // Static file (allows the application to access the files of public package without the need for additional routing)
 app.use(express.static("front"));
 
@@ -74,9 +72,30 @@ initializePassport(
     id => collection.findOne({ id: id }), // Use exec() which is "{}" to return a promise that the function understands 
 );
 
+//configuring the umpload destination for the folders in the server
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'views/uploads') // Destination folder to save the uploaded files
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname) // Use original filename
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    // Check file type
+    if (file.mimetype.startsWith('image/')) {
+        cb(null, true); // Accept the file
+    } else {
+        cb(new Error('Only image files are allowed')); // Reject the file
+    }
+};
+const upload = multer({ storage: storage, fileFilter: fileFilter });
+
+
 // Sign up User
 // Configuring the register post functionality
-app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the signup file using async function that has
+app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res) => { //accessing the signup file using async function that has
                                                                 //2 parmeters req for the incoming data and res for sending
     try{
         //const { firstName, lastName, email, dateOfBirth, nationality, language, level } = req.body;
@@ -118,7 +137,9 @@ app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the 
         const year = req.body.year;
         const month = req.body.month;
         const day = req.body.day;
-        const birthdate = new Date(year, month - 1, day);
+        const birthdate = new Date(year, month-1, day);
+        //retrieving the file path
+        const picPath = req.file.path;
 
         // Récupérer les données du corps de la requête
         const data = { // object that contains the data
@@ -130,7 +151,8 @@ app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the 
             nationality: req.body.nationality,
             language: req.body.language,
             level: req.body.level,
-            password: hashedPassword // Replace the original password with the hashed one
+            password: hashedPassword, // Replace the original password with the hashed one
+            picPath:picPath
         }
     
         // Check if the email already exists in the database
@@ -175,18 +197,14 @@ app.post("/signup",checkNotAuthenticated, async (req, res) => { //accessing the 
     
             //inserting data into the data base and not executing the following code until it resolves(await)
             const userdata = await collection.insertMany(data); 
-            res.redirect('login');
-            console.log(userdata + "you should recieve an email with the password "+ randomPassword);
+            res.sendFile(path.join(__dirname, '/../front/popup.html'));
 
-    
-            /*email error message (not  used)
-            
-            transporter.sendMail(message).then(()=>{
-             return res.status(201).json ({msg: "you should recieve an email"})
-            }).catch(error=>{
-                return res.status(500).json ({error})
-            })
-        */
+            /*         
+            setTimeout(() => {
+                res.redirect('login'); // Redirect the user to the 'login' page after a delay
+            }, 1000); // Redirect after 5 seconds (adjust the delay as needed)
+            */
+            console.log(userdata + "you should recieve an email with the password "+ randomPassword);
         }}
         catch (error) {
             console.error(error);
@@ -236,7 +254,7 @@ app.get("/signup",checkNotAuthenticated, (req, res) => {
     res.render("signup",{messages:req.flash()}); //besides the signup form we will also render the signup errors when they occur
 });
 app.get("/home",checkAuthenticated, (req, res) => {
-    res.render("home",{name: req.user.firstName});//besides the home page we will also render the first name as a username 
+    res.render("home",{name: req.user.firstName,picPath: req.user.picPath});//besides the home page we will also render the first name as a username 
 });
 
 //authentification

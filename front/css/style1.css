@@ -1,0 +1,192 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Custom styling for Google Translate widget */
+#google_translate_element {
+    margin-bottom: 20px; /* Example margin */
+}
+
+/* Example: Change the background color of the dropdown */
+.goog-te-combo {
+    background-color: #f8f9fa; /* Example background color */
+}
+
+/* Example: Change the text color of the dropdown options */
+.goog-te-combo option {
+    color: #333; /* Example text color */
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4070f4;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: transparent;
+}
+
+/* White card for the form elements */
+.form.signup {
+    background-color: #f9f9f9; /* Light gray background color */
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent);
+    background-size: 20px 20px; /* Size of the pattern */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+/* Style for the title within the form */
+.title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: #4070f4;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* Input fields style */
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field select {
+    width: 100%;
+    padding: 12px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+    font-size: 1rem; 
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border color and box-shadow */
+}
+
+/* Icon style within input fields */
+.input-container-3 .input-field i {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Adjust the left position of the icon */
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px; /* Decreased font size for the icon */
+    transition: color 0.3s; /* Smooth transition for icon color */
+}
+
+/* On focus styles for inputs */
+.input-field input:focus,
+.input-field select:focus {
+    border-color: #4070f4; /* Change border color on focus */
+    box-shadow: 0 0 0 3px rgba(64, 112, 244, 0.1); /* Add a subtle box-shadow on focus */
+}
+
+/* On hover styles for icons */
+.input-field:hover i {
+    color: #666; /* Change icon color on hover */
+}
+
+/* Button styling within the form */
+.input-field.button input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the button */
+.input-field.button input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for checkbox and label */
+.checkbox-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.checkbox-content {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Styles for the login link at the bottom of the form */
+.login-signup {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-signup .text a {
+    color: #4070f4;
+    text-decoration: none;
+}
+
+.login-signup .text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 576px) {
+    .form.signup {
+        padding: 20px;
+        margin: 10px;
+        max-width: 90%;
+    }
+}
+
+/* Additional input container styles */
+.input-container,
+.input-container-2,
+.input-container-3 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-field input {
+    width: 105%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

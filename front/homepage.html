@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="logo orange.png" type="image/x-icon">
+        
+        
+        <!--=============== BOXiCONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="swiper-bundle.min.css">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <title>MegaTel</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+             <a href="#" class="nav__logo">
+                 <img  src="logo orange.png" >MegaTel
+             </a>
+             <div class="nav__menu">
+                 <ul class="nav__list">
+                     <li class="nav__item">
+                         <a href="#home" class="nav__link active-link">
+                             <i class="bx bx-home-alt"></i>
+                             <span>HOME</span>
+                         </a>
+                     </li>
+     
+                     <li class="nav__item">
+                         <a href="#popular" class="nav__link active-link">
+                             <i class='bx bx-briefcase-alt-2'></i>
+                             <span>SERVICES</span>
+                         </a>
+                     </li>
+     
+                     <li class="nav__item">
+                         <a href="#value" class="nav__link active-link">
+                             <i class='bx bx-building-house' ></i>
+                             <span>ABOUT US</span>
+                         </a>
+                     </li>
+     
+                     <li class="nav__item">
+                         <a href="#contact" class="nav__link active-link">
+                             <i class='bx bxs-contact' ></i>
+                             <span>CONTACT</span>
+                         </a>
+                     </li>
+     
+     
+                 </ul>
+             </div>
+            <!-------Theme Change Button--->
+             <i class="bx bx-moon change-theme" id="theme-button"></i>
+             <a href="login.ejs.html" class="button nav__button">
+                 Log In
+             </a>
+             <a href="signup.ejs.html" class="button nav__button">
+                 Signup
+             </a>
+            </nav>
+         </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="home__container">
+                    <div class="home__data">
+                    <h1 class="home__title">In the world of digital customer service solutions</h1>
+                    <p class="home__description">VOTRE PARTENAIRE STRATÉGIQUE MONDIAL
+                        Bienvenue chez MegaTel - votre partenaire de premier ordre pour les services de centres d'appels professionnels <br> ! Aujourd'hui, nous vous présentons nos services de centres d'appels de premier ordre, spécialement adaptés aux besoins des grandes entreprises.</p>
+                    <form action="" class="home__search">
+                        <i class='bx bx-map'></i>
+                        <input type="search" placeholder="search..." class="home__search-input">
+                        <button class="button">search</button>
+                    </form>
+                    <div class="home__value">
+                        <div>
+                            <h1 class="home__value-number">
+                                150 <span>+</span>
+                            </h1>
+                            <span class="home__value-description">
+                                employés dans le <br>monde entier
+                            </span>
+                        </div>
+            
+            
+                        <div>
+                            <h1 class="home__value-number">
+                               7 <span>+</span>
+                            </h1>
+                            <span class="home__value-description">
+                               ans d'experience <br>avec fierté
+                            </span>
+                        </div>
+            
+                        <div>
+                            <h1 class="home__value-number">
+                                19k <span>+</span>
+                            </h1>
+                            <span class="home__value-description">
+                                projet <br>réalisés
+                            </span>
+                        </div>
+            
+                        <div>
+                            <h1 class="home__value-number">
+                                10 <span>+</span>
+                            </h1>
+                            <span class="home__value-description">
+                                partenariat <br>mondial
+                            </span>
+                        </div>
+            
+                     </div>
+                    </div> 
+                    <div class="home__images">
+                        <div class="home__orbe">
+                            <img src="contact.jpg" class="home__img">
+                        </div>
+                    </div>
+                                   
+                </div>
+            </section>
+
+            <section class="logos section">
+                <div class="logos__container container grid">
+                    <div class="logos_img">
+                        <img src="logo11.png" >
+                    </div>
+                    <div class="logos_img">
+                        <img src="logo21.png" >
+                    </div>
+                    <div class="logos_img">
+                        <img src="logo3.png" >
+                    </div>
+                    <div class="logos_img">
+                        <img src="logo4.png" >
+                    </div>
+                </div>
+            </section>
+
+            <section class="popular section" id="popular">
+                <div class="container">
+                    <span class="section__subtitle">Best Choice</span>
+                    <h2 class="section__title">
+                        Our Services <span>.</span>
+                    </h2>
+                    <div class="popular__container swiper">
+                        <div class="swiper-wrapper">
+                            <article class="popular__card swiper-slide">
+                                <img src="Service client et information.jpg" class="popular__img">
+                                <div class="popular__data">
+                                    <p class="popular__description">
+                                        Service client et information
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="popular__card swiper-slide">
+                                <img src="Traitement des appels entrants.jpg" class="popular__img">
+                                <div class="popular__data">
+                                    <p class="popular__description">
+                                        Traitement des appels entrants
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="popular__card swiper-slide">
+                                <img src="Assistance de premier niveau et gestion des réclamations.jpg" class="popular__img">
+                                <div class="popular__data">
+                                    <p class="popular__description">
+                                        Assistance de premier niveau et gestion des réclamations
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="popular__card swiper-slide">
+                                <img src="Externalisation sur mesure.jpg" class="popular__img">
+                                <div class="popular__data">
+                                    <p class="popular__description">
+                                        Externalisation sur mesure
+                                    </p>
+                                </div>
+                            </article>
+                            <article class="popular__card swiper-slide">
+                                <img src="Prise de commandes.jpg" class="popular__img">
+                                <div class="popular__data">
+                                    <p class="popular__description">
+                                        Prise de commandes
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="swiper-button-next">
+                            <i class="bx bx-chevron-right"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <i class="bx bx-chevron-left"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                
+                   
+
+             <!--==================== VALUE ====================-->
+             <section class="value section" id="value">
+                <div class="value__container container grid">
+                    <div class="value__images">
+                        <div class="value__orbe">
+
+                        </div>
+                        <div class="value__img">
+                            <img src="R.jfif" class="value__img" >
+                        </div>
+                    </div>
+                   <div class="value__content">
+                    <div class="value__data">
+                        <span class="section__subtitle">
+                            <h2 style="color: hsl(25, 83%, 53%);"> About Us</h2>
+                        </span>
+                        <h2 class="section__title">
+                            Expérience et stabilité <br>+7 ans de succès invaincu <span>.</span>
+                        </h2>
+                        <p class="value__description">
+                            MegaTel offre des services de centres d'appels professionnels de premier ordre, conçus sur mesure
+                            pourles grandes entreprises. Leurs solutions garantissent une gestion fluide des appels, une
+                            assistance clientèle de qualité supérieure et une prise en charge multicanal. En optant pour MegaTel,
+                            les entreprises peuvent améliorer leur service client et fidéliser leur clientèle avec efficacité.
+                        </p>
+                    </div>
+                    <div class="value__accordion">
+                        <div class="value__accordion-item accordion-open">
+                            <header class="value__accordion-header">
+                                <i class='bx bx-dollar'></i>
+                                <h3 class="value__accordion-title">
+                                    1,5
+                                </h3>
+                                <div class="value__accordition-arrow">
+                                <i class='bx bx-down-arrow-alt'></i> 
+                                </div>
+                            </header>
+                            <div class="value__accordion-content">
+                                <p class="value__accordion-description">
+                                    Chiffre d'affaires en 2015-2022 (millions)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="value__accordion-item">
+                            <header class="value__accordion-header">
+                                <i class='bx bxs-user-detail'  ></i>                                <h3 class="value__accordion-title">
+                                    150+
+                                </h3>
+                                <div class="value__accordition-arrow">
+                                    <i class='bx bx-down-arrow-alt'></i> 
+                                    </div>
+                            </header>
+                            <div class="value__accordion-content">
+                                <p class="value__accordion-description">
+                                    Collègues et comptage
+                                </p>
+                            </div>
+                        </div>
+                        <div class="value__accordion-item">
+                            <header class="value__accordion-header">
+                                <i class='bx bxs-shield-plus'  ></i>                                <h3 class="value__accordion-title">
+                                    19+
+                                </h3>
+                                <div class="value__accordition-arrow">
+                                    <i class='bx bx-down-arrow-alt'></i> 
+                                    </div>
+                            </header>
+                            <div class="value__accordion-content">
+                                <p class="value__accordion-description">
+                                    Projet réussi
+                                </p>
+                            </div>
+                        </div>
+                        <div class="value__accordion-item">
+                            <header class="value__accordion-header">
+                                <i class='bx bx-award' ></i>                                <h3 class="value__accordion-title">
+                                    7+
+                                </h3>
+                                <div class="value__accordition-arrow">
+                                    <i class='bx bx-down-arrow-alt'></i> 
+                                    </div>
+                            </header>
+                            <div class="value__accordion-content">
+                                <p class="value__accordion-description">
+                                    Sept ans d'expérience
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+        
+            </section>
+
+            <section class="contact section" id="contact">
+                <div class="contact__container container grid">
+                    <div class="contact__images">
+                        <div class="contact__orbe">
+                        </div>
+                        <div class="contact__img">
+                            <img src="appel.jfif" class="contact__img">
+                        </div>
+                    </div>
+                    <div class="contact__content">
+                        <div class="contact__data">
+                            <span class="section__subtitle">Contact Us</span>
+                            <h2>Easy to Contact Us <span>.</span></h2>
+                            <p class="contact__description">
+                                Having trouble resolving your inquiries? 
+                                Seeking assistance with customer support or technical issues? 
+                                Don't hesitate to reach out to our call center.
+                                Our dedicated team is ready to provide prompt and reliable assistance, 
+                                ensuring your queries are addressed efficiently. Contact us now for personalized and efficient service.            
+                            </p>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="contact__card">
+                                        <div class="contact__card-box">
+                                            <div class="contact__card-info">
+                                                <i class='bx bxs-phone-call'></i>
+                                            </div>
+                                            <h3 class="contact__card-title">
+                                                Call
+                                            </h3>
+                                            <p class="contact__card-description">
+                                                +49 15215894603
+                                            </p>
+                                            <button class="button contact__card-description">
+                                                Call Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact__card">
+                                        <div class="contact__card-box">
+                                            <div class="contact__card-info">
+                                                <i class='bx bx-message-rounded-dots'></i>
+                                            </div>
+                                            <h3 class="contact__card-title">
+                                                Chat
+                                            </h3>
+                                            <p class="contact__card-description">
+                                                +49 15215894603
+                                            </p>
+                                            <button class="button contact__card-description">
+                                                Chat Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="contact__card">
+                                        <div class="contact__card-box">
+                                            <div class="contact__card-info">
+                                                <i class='bx bx-video'></i>
+                                            </div>
+                                            <h3 class="contact__card-title">
+                                                Video Call
+                                            </h3>
+                                            <p class="contact__card-description">
+                                                +49 15215894603
+                                            </p>
+                                            <button class="button contact__card-description">
+                                                Video Call Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact__card">
+                                        <div class="contact__card-box">
+                                            <div class="contact__card-info">
+                                                <i class='bx bxs-envelope'></i>
+                                            </div>
+                                            <h3 class="contact__card-title">
+                                                Message
+                                            </h3>
+                                            <p class="contact__card-description">
+                                                +49 15215894603
+                                            </p>
+                                            <button class="button contact__card-description">
+                                                Message Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!---------------------Subscribe---------------------->
+                <section class="subscribe section">
+                    <div class="subscribe__container container ">
+                        <h1 class="subscribe__title">
+                            Get Started With MegaTel
+                        </h1>
+                        <p class="subscribe__description">
+                            Stay connected with us! Subscribe now for exclusive updates, offers, and top-notch customer service solutions.
+                        </p>
+                        <a href="#" class="button subscribe__button">
+                            Get Started
+                        </a>
+                    </div>
+                </section>
+            <footer class="footer section">
+                <div class="footer__container text-center">
+                    <div class="row">
+                      <div class="col">
+                        <h3 class="footer__title">
+                          About  
+                        </h3>
+                        <ul class="footer__links">
+                          <li>
+                              <a href="#" class="footer__link">About Us</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">Features</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">News & Blog</a>
+                          </li>
+                      </ul>
+                      </div>
+                      <div class="col">
+                        <h3 class="footer_title">
+                          Company
+                      </h3>
+                      <ul class="footer__links">
+                          <li>
+                              <a href="#" class="footer__link">How we Work?</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">Capital</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">Security</a>
+                          </li>
+                      </ul>
+                      </div>
+                      <div class="col">
+                        <h3 class="footer_title">
+                          Support
+                      </h3>
+                      <ul class="footer__links">
+                          <li>
+                              <a href="#" class="footer__link">FAQs</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">Support Center</a>
+                          </li>
+                  
+                          <li>
+                              <a href="#" class="footer__link">Contact Us</a>
+                          </li>
+                      </ul>
+                      </div>
+                      <div class="col">
+                        <h3 class="footer_title">
+                          Follow Us
+                      </h3>
+                      <ul class="footer__social">
+                          <a href="https://www.facebook.com/profile.php?id=100063861142748" target="_blank" class="footer__social-link">
+                              <i class='bx bxl-facebook'></i>
+                          </a>
+                          <a href="https://www.facebook.com/profile.php?id=100063861142748" target="_blank" class="footer__social-link">
+                              <i class='bx bxl-instagram'></i>
+                          </a>
+                      </ul>
+                      </div>
+                    </div>
+                  </div>
+                            
+                <div class="footer__info container ">
+                    <span class="footer__copy">
+                        Droits d’auteur © 2024 MegaTel
+                    </span>
+                    <div class="footer__privacy">
+                        <a href="#">Terms and Agreements</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+            
+
+
+
+<!--========== SCROLL UP ==========-->
+<a href="#" class="scrollup" id="scroll-up">
+    <i class='bx bx-chevrons-up'></i> 
+</a>
+
+<!--=============== SCROLLREVEAL ===============-->
+<script src="scrollreveal.min.js"></script>
+
+<!--=============== SWIPER JS ===============-->
+<script src="swiper-bundle.min.js"></script>
+
+<!--=============== MAIN JS ===============-->
+<script src="main.js"></script>
+</body>
+</html>

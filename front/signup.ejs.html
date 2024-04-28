@@ -21,24 +21,19 @@
     </a>
 <div class="form signup">
     <h2 class="title">Registration</h2>
-    <% if (messages.error) { %>
-        <div class="alert alert-danger">
-          <strong><%= messages.error %></strong>
-        </div>
-      <% } %>   
-    <form action="/signup" method="POST" enctype="multipart/form-data">
+
+    <form action="/signup" method="POST">
         <div class="input-container-3">
-            
             <div class="input-field">
                 <label for="firstName">First Name:</label>
                 <input style="font-size: 10px; padding: 15px;" type="text" placeholder="Enter your First name"
-                name="firstName" id="firstName" required="">
+                id="firstName" required>
                 
             </div>
             <div class="input-field">
                 <label for="lastName">Last Name:</label>
                 <input style="font-size: 10px; padding: 15px;" type="text" placeholder="Enter your Last name" 
-                name="lastName" id="lastName" required="">
+                id="lastName" required>
                 
             </div>
         </div>
@@ -46,14 +41,14 @@
         <div class="input-field">
             <label for="email" >Email:</label>
             <input style="font-size: 15px; padding: 15px;" type="email" placeholder="Enter your email"
-            name="email" id="email" required="">
+            id="email" required>
 
         </div>
         <div class="input-container">
             <div class="input-field">
                 <!-- Day -->
                 <label for="day">Day</label>
-                <select name="day" id="day" class="form-select" required="">
+                <select id="day" class="form-select" aria-label="Default select example">
                     <option value="" disabled selected>1</option>
                     <script>
                         for (var i = 2; i <= 31; i++) {
@@ -66,30 +61,31 @@
             <div class="input-field">
              <!-- Month -->
                 <label for="month">Month</label>
-                <select name="month" id="month" class="form-select" required="">
-                         <option value="1" disabled selected>January</option>
-                         <option value="2">February</option>
-                         <option value="3">March</option>
-                         <option value="4">April</option>
-                         <option value="5">May</option>
-                         <option value="6">June</option>
-                         <option value="7">July</option>
-                         <option value="8">August</option>
-                         <option value="9">September</option>
-                         <option value="10">October</option>
-                         <option value="11">November</option>
-                         <option value="12">December</option>
+                <select id="month" class="form-select" aria-label="Default select example">
+                         <option value="" disabled selected>Jan</option>
+                        <option value="January">Jan</option>
+                        <option value="February">Feb</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">Aug</option>
+                        <option value="September">Sept</option>
+                        <option value="October">Oct</option>
+                        <option value="November">Novr</option>
+                        <option value="December">Dec</option>
                 </select>
             </div>
 
             <div class="input-field">
                 <!-- Year -->
                 <label for="year">Year</label>
-                <select class="form-select" name="year" id="year" required="">
+                <select class="form-select" id="year" required="">
                             <option  value="" disabled selected> 1970 </option>
                             <!-- Adding options for years from 1970 to 2024 -->
                             <script>
-                                for (var i = 1971; i <= 2006; i++) {
+                                for (var i = 1971; i <= 2024; i++) {
                                     document.write('<option value="' + i + '">' + i + '</option>');
                                 }
                             </script>
@@ -104,8 +100,7 @@
                              <div>
                                 <span class="iconify" data-icon="flag:gb-4x3"></span>
                             </div>
-                            <input style="border:  none; font-size:15px; padding: 0%; text-align: center;" type="text" class="search-box"
-                            name="nationality" required="" placeholder="Search Country Name">
+                            <input style="border:  none; font-size:15px; padding: 0%; text-align: center;" type="text" class="search-box" placeholder="Search Country Name">
                             <div class="options">
                                  <ol style="padding: 0px;">
                  
@@ -118,8 +113,8 @@
             <div class="input-container-2">
                 <div class="input-field">
                     <label for="language">Language:</label>
-                    <select name="language" id="language" class="form-select" required="" aria-label="Default select example">
-                        <option value="">Not Specified</option>
+                    <select id="language" class="form-select" aria-label="Default select example">
+                        <option value="--">Not Specified</option>
                         <option value="aa">Afar</option>
                         <option value="af">Afrikaans</option>
                         <option value="sq">Albanian</option>
@@ -276,7 +271,7 @@
                 </div>
                 <div class="input-field">
                     <label for="level">Level:</label>
-                    <select name="level" id="Level" class="form-select" aria-label="Default select example">
+                    <select id="level" class="form-select" aria-label="Default select example">
                         <option value="A1"> A1</option>
                         <option value="A2"> A2</option>
                         <option value="B1">B1</option>
@@ -288,12 +283,15 @@
             </div>
             <div class="input-field">
                 <label for="photo">Upload Your Photo:</label>
-                <input type="file" id="file" name="file" required="" placeholder="Upload your photo">
+                <input type="file" id="photo" name="photo" placeholder="Upload your photo">
             </div>
-            
+            <% if (messages.error) { %>
+                <div class="alert alert-danger">
+                  <strong><%= messages.error %></strong>
+                </div>
+              <% } %>   
         <div class="input-field button">
-            <a href="popup.html"></a>
-                <input type="submit" value="Signup" style="background-color: hsl(25, 83%, 53%);; color: white; font-weight: 600;">
+            <a href="popup.html"><input type="button" value="Signup" style="background-color: hsl(25, 83%, 53%);; color: white; font-weight: 600;"></a>
         </div>
     </form>
 
