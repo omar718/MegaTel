@@ -26,14 +26,21 @@ href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
             <div class="form login">
                 <span class="title">Login</span>
 
-                <form action="#">
+                <form action="/login" method="POST">
+                    <% if (messages.error) { %>
+                        <div class="alert alert-danger">
+                          <strong><%= messages.error %> </strong>
+                        </div>
+                      <% } %> 
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email or your id" required>
+                        <input type="text" placeholder="Enter your email or your id" 
+                        id="text" name="text" required="" autocomplete="off">
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
                         <i class="uil uil-lock icon"></i>
-                        <input type="password" class="password"placeholder="Enter your password" id="myInput"required>
+                        <input type="password" class="password"placeholder="Enter your password"
+                        name="password" id="password" required="" > <!---id="myInput"required>-->
                         <span class="eye" onclick="myFunction()">
                             <i id="hide1" class="uil uil-eye"></i>
                             <i id="hide2" class="uil uil-eye-slash showHidePw"></i>
@@ -42,21 +49,21 @@ href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
-                            <input type="checkbox" id="logCheck">
-                            <label for="logCheck"class="text">Remember me</label>
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe" class="text">Remember me</label>
                         </div>
 
                         <a href="#" class="text">Forgot password?</a>
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Login">
+                        <input type="submit" class="submit" value="Login" onclick="lsRememberMe()">
                     </div>
                 </form>
 
                 <div class="login-signup">
                     <span class="text">Don't Have An Account?
-                        <a href="signup.ejs.html" class="textsignup-link" style="color:hsl(25, 83%, 53%);;">SignUp</a>
+                        <a href="signup" class="textsignup-link" style="color:hsl(25, 83%, 53%);;">SignUp</a>
                     </span>
                 </div>
             </div>
@@ -64,7 +71,7 @@ href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
      <script>
             function myFunction() {
-                    var x = document.getElementById("myInput")
+                    var x = document.getElementById("password")
                     var y = document.getElementById("hide1")
                     var z = document.getElementById("hide2")
                     if (x.type === 'password') {
@@ -78,6 +85,8 @@ href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
                         z.style.display="block";
                     }
                 }
+        src="/rememberMe.js"
+
      </script>
 </body>
 </html>
