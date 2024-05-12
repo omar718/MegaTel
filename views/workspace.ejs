@@ -19,9 +19,32 @@
 
     <style>
       body{
-        background: url('work.webp');
+        background: url('');
         /* background-repeat: no-repeat; */
         /* background-size: cover; */
+      }
+      .profile_pic{
+        height: 100px;
+        width: 100px;
+        margin:20px;
+        float: left;
+        /*border:3px solid black;*/
+      }
+      .text_dark{
+        color:black;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+      }
+      .lead{
+        color:black;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
       }
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -79,36 +102,33 @@
     <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-white bg-white">
+    <h1 class="text_dark">Hello <%= name %>  </h1>
+
+    <img src="<%= picPath %>" alt="Profile Picture" class="profile_pic">
       <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
           <div>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-              <img src="<%= picPath %>" alt="Profile Picture">
-
               <form action="/logout?_method=DELETE" method="POST">
                 <button class="nav-link fw-bold py-1 px-0 btn p=3 btn-dark text-white" type="submit"  >Logout</button>
-
               </form>
-
-              
-              
             </nav>
           </div>
         </header>
-
-        <main class="px-3">
-          <h1 class="text-dark">Hello <%= name %>  </h1>
-          <p class="lead"></p>
+        <main class="">
+          <p class="lead">And welcome to the workspace</p>
         </main>
-        <iframe src="https://discordapp.com/widget?id=1225794244061691976&theme=dark" width="350" height="700" style="margin-left:10px" 
-        allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-      </iframe>
+
         <footer class="mt-auto text-dark-50">
         </footer>
       </div>
+      <iframe src="https://discordapp.com/widget?id=1225794244061691976&theme=dark" width="350" height="600" style="position: absolute;bottom: 10px;right: 10px;" 
+      allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
       <script>
       window.location.href = "discord://";
     </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      
   </body>
 </html>

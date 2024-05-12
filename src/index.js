@@ -64,6 +64,8 @@ app.use(methodOverride("_method"));
 
 // Static file (allows the application to access the files of public package without the need for additional routing)
 app.use(express.static("front"));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname,'..')));
 
 //error messages configuration
 initializePassport(
@@ -72,10 +74,10 @@ initializePassport(
     id => collection.findOne({ id: id }), // Use exec() which is "{}" to return a promise that the function understands 
 );
 
-//configuring the umpload destination for the folders in the server
+//configuring the upload destination for the folders in the server
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'views/uploads') // Destination folder to save the uploaded files
+        cb(null,path.join('views/uploads')) // Destination folder to save the uploaded files
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname) // Use original filename
@@ -116,19 +118,7 @@ app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res)
             level
         });
         */
-        //random password generator
-        function generateRPassword(length) {
-            return randomstring.generate({
-                length: length || 8, 
-                charset: 'alphanumeric' 
-            });
-        }
         
-        const randomPassword = generateRPassword();
-        // Hash the password using bcrypt
-        const saltRounds = 10; // Number of salt rounds for bcrypt
-        const hashedPassword = await bcrypt.hash(randomPassword, saltRounds);
-
         //ID generator
         const ID = Date.now().toString(); //generate and ID from date function
         const shortID= ID.slice(-8); //extracting an ID of only 8 digits
@@ -151,7 +141,6 @@ app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res)
             nationality: req.body.nationality,
             language: req.body.language,
             level: req.body.level,
-            password: hashedPassword, // Replace the original password with the hashed one
             picPath:picPath
         }
     
@@ -161,7 +150,52 @@ app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res)
             req.flash("error","Email already exists. Please choose another email")
             return res.redirect('signup')}
         else {
-            //email verification
+            const userdata = await collection.insertMany(data); 
+            res.sendFile(path.join(__dirname, '/../front/popup.html'));
+            console.log(userdata + "you should recieve an email with the password ");
+            
+        }}
+        catch (error) {
+            console.error(error);
+            res.status(500).send('Internal Server Error');
+
+        }
+        
+});
+
+// Login user 
+
+app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
+    successRedirect: "/workspace",
+    failureRedirect: "/login",
+    failureFlash: true
+}))
+
+//admin
+
+app.post("/adminn",upload.single("file"), async (req, res) => {
+//getting the user omar zroud
+// Function to retrieve user data based on email
+async function getUserByEmail(email) {
+    return await collection.findOne({ email: email });
+}
+const userEmail = 'omarzroud23@gmail.com'; // Replace with the user's email you want to retrieve
+const data = await getUserByEmail(userEmail);
+console.log(data); // Print the user data retrieved from the database
+//random password generator
+function generateRPassword(length) {
+    return randomstring.generate({
+        length: length || 8, 
+        charset: 'alphanumeric' 
+    });
+}
+
+const randomPassword = generateRPassword();
+// Hash the password using bcrypt
+const saltRounds = 10; // Number of salt rounds for bcrypt
+const hashedPassword = await bcrypt.hash(randomPassword, saltRounds);
+password: hashedPassword, // Replace the original password with the hashed one
+//email verification
             // Read the mail file that will be sent asynchronously
             fs.readFile('front/mail.html', 'utf8', async (err, mail) => {
                 if (err) {
@@ -196,32 +230,13 @@ app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res)
             });
     
             //inserting data into the data base and not executing the following code until it resolves(await)
-            const userdata = await collection.insertMany(data); 
-            res.sendFile(path.join(__dirname, '/../front/popup.html'));
+            const userdata = await collection.updateOne(
+                { email: userEmail },
+                { $set: { password: hashedPassword } }
+            );
+            res.sendFile(path.join(__dirname, '/../front/popupEmail.html'));
 
-            /*         
-            setTimeout(() => {
-                res.redirect('login'); // Redirect the user to the 'login' page after a delay
-            }, 1000); // Redirect after 5 seconds (adjust the delay as needed)
-            */
-            console.log(userdata + "you should recieve an email with the password "+ randomPassword);
-        }}
-        catch (error) {
-            console.error(error);
-            res.status(500).send('Internal Server Error');
-
-        }
-        
-});
-
-// Login user 
-
-app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
-    successRedirect: "/home",
-    failureRedirect: "/login",
-    failureFlash: true
-}))
-
+})
 /*
 app.post("/login", async (req, res) => {
     try {
@@ -235,7 +250,7 @@ app.post("/login", async (req, res) => {
             res.send("wrong Password");
         }
         else {
-            res.render("home");
+            res.render("workspace");
         }
     }
     catch {
@@ -253,10 +268,12 @@ app.get("/login",checkNotAuthenticated, (req, res) => {
 app.get("/signup",checkNotAuthenticated, (req, res) => {
     res.render("signup",{messages:req.flash()}); //besides the signup form we will also render the signup errors when they occur
 });
-app.get("/home",checkAuthenticated, (req, res) => {
-    res.render("home",{name: req.user.firstName,picPath: req.user.picPath});//besides the home page we will also render the first name as a username 
+app.get("/workspace",checkAuthenticated, (req, res) => {
+    res.render("workspace",{name: req.user.firstName,picPath: req.user.picPath});//besides the workspace page we will also render the first name as a username 
 });
-
+app.get("/admin", (req, res) => {
+    res.render("adminn");
+});
 //authentification
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
@@ -267,7 +284,7 @@ function checkAuthenticated(req, res, next){
 
 function checkNotAuthenticated(req, res, next){
     if(req.isAuthenticated()){
-        return res.redirect("/home")
+        return res.redirect("/workspace")
     }
     next()
 }

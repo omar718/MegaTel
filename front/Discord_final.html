@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="logo orange.png" type="image/x-icon">
+        
+        
+        <!--=============== BOXiCONS ===============-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="swiper-bundle.min.css">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            #timer {font-size: 24px;text-align: center;margin-top: 50px;}
+            #link {display: none;text-align: center;margin-top: 20px;}
+          </style>
+        <title>Discord</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+             <a href="#" class="nav__logo">
+                 <img  src="logo orange.png" >MegaTel
+             </a>
+             <div class="nav__menu">
+                 <ul class="nav__list">
+                     <li class="nav__item">
+                         <a href="#home" class="nav__link active-link">
+                             <i class="bx bx-home-alt"></i>
+                             <span>HOME</span>
+                         </a>
+                     </li>
+     
+                     <li class="nav__item">
+                         <a href="#popular" class="nav__link active-link">
+                             <i class='bx bx-briefcase-alt-2'></i>
+                             <span>SERVICES</span>
+                         </a>
+                     </li>
+     
+                     <li class="nav__item">
+                         <a href="#value" class="nav__link active-link">
+                             <i class='bx bx-building-house' ></i>
+                             <span>ABOUT US</span>
+                         </a>
+                     </li>
+                     <li class="nav__item">
+                         <a href="#contact" class="nav__link active-link">
+                             <i class='bx bxs-contact' ></i>
+                             <span>CONTACT</span>
+                         </a>
+                     </li>
+     
+     
+                 </ul>
+             </div>
+            <!-------Theme Change Button--->
+             <i class="bx bx-moon change-theme" id="theme-button"></i>
+             <a href="login.ejs.html" class="button nav__button">
+                 Log In
+             </a>
+             <a href="signup.ejs.html" class="button nav__button">
+                 Signup
+             </a>
+            </nav>
+         </header>
+
+         <style>
+         .home__img{
+            position: relative;
+            width: 250px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 125px 125px 12px 12px;
+            display: inline-flex;
+            align-items: flex-end;
+            bottom: -1.5rem;
+            box-shadow: 0 16px 32px rgba(228, 66%, 25%, 0.25);
+          }</style>
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="home__data">
+                <div class="container">
+                    <div class="row align-items-center">
+                      <!-- Photo column -->
+                      <div class="col-md-6">
+                        <img src="discord.gif" style="width:532px;height: 400px;" class="img-fluid">
+                      </div>
+                      <!-- Text column -->
+                      <div class="col-md-6">
+                        <h1 class="home__title">Please, can you check that you are connected to Discord </h1>
+                        <h4 class="home__description">we are waiting for you.</h4>
+                        <div id="timer">if you didn't join yet : wait<span id="countdown">10</span><br><br><br><br><br><br><br><br></div>
+                        <div id="link">
+                            <h2  style="color: #7289da;"><a href="https://www.discord.com"  target="_blank">Discord server</a></h2> <br><br><br><br><br><br> <b><br> <br>
+                        </div>                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                
+            </section>
+        </main>
+        <script>
+            function startTimer(duration, display) {
+              var timer = duration, minutes, seconds;
+              setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+          
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+          
+                display.textContent = seconds;
+          
+                if (--timer < 0) {
+                  timer = duration;
+                  document.getElementById('link').style.display = 'block';
+                  document.getElementById('timer').style.display = 'none';
+                }
+              }, 1000);
+            }
+            window.onload = function () {
+              var fifteenSeconds = 10,
+                  display = document.querySelector('#countdown');
+              startTimer(fifteenSeconds, display);
+            };
+          </script>
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="scrollreveal.min.js"></script>
+
+
+        <!--=============== MAIN JS ===============-->
+        <script src="main.js"></script>
+        
+    </body>
+</html>

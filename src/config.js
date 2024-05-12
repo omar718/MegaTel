@@ -48,7 +48,7 @@ const SignUpschema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
+        required: false,
         unique: true // Assure que chaque email est unique dans la base de données
     },
     picPath:{

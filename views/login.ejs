@@ -24,16 +24,16 @@ href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <div class="container">
         <div class="forms">
             <div class="form login">
-                <span class="title">Login</span>
-
+                <h2 class="title">Login</h2>
+                <% if (messages.error) { %>
+                    <div class="alert alert-danger">
+                      <strong><%= messages.error %> </strong>
+                    </div>
+                  <% } %> 
                 <form action="/login" method="POST">
-                    <% if (messages.error) { %>
-                        <div class="alert alert-danger">
-                          <strong><%= messages.error %> </strong>
-                        </div>
-                      <% } %> 
+                    
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email or your id" 
+                        <input type="text" placeholder="Enter your email or your ID" 
                         id="text" name="text" required="" autocomplete="off">
                         <i class="uil uil-envelope icon"></i>
                     </div>
