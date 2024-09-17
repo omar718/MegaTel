@@ -27,6 +27,7 @@ const SignUpschema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique:true
     },
     dateOfBirth: {
         
@@ -49,7 +50,6 @@ const SignUpschema = new mongoose.Schema({
     password: {
         type: String,
         required: false,
-        unique: true // Assure que chaque email est unique dans la base de données
     },
     picPath:{
         type:String,

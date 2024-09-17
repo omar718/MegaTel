@@ -100,24 +100,6 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res) => { //accessing the signup file using async function that has
                                                                 //2 parmeters req for the incoming data and res for sending
     try{
-        //const { firstName, lastName, email, dateOfBirth, nationality, language, level } = req.body;
-
-        // Valider les données
-        /*if (!firstName || !lastName || !email || !dateOfBirth /*|| !nationality || !language || !level) {
-            return res.status(400).json({ message: "Tous les champs sont obligatoires" });
-        }*/
-
-        // Créer un nouvel utilisateur dans la base de données
-        /*const newUser = new User({
-            firstName,
-            firstName,
-            email,
-            dateOfBirth,
-            nationality,
-            language,
-            level
-        });
-        */
         
         //ID generator
         const ID = Date.now().toString(); //generate and ID from date function
@@ -164,16 +146,16 @@ app.post("/signup",checkNotAuthenticated,upload.single("file"), async (req, res)
 });
 
 // Login user 
-
 app.post("/login",checkNotAuthenticated, passport.authenticate("local", {
-    successRedirect: "/workspace",
+    successRedirect: "/Discord_final",
     failureRedirect: "/login",
     failureFlash: true
 }))
 
+
 //admin
 
-app.post("/adminn",upload.single("file"), async (req, res) => {
+app.post("/admin",upload.single("file"), async (req, res) => {
 //getting the user omar zroud
 // Function to retrieve user data based on email
 async function getUserByEmail(email) {
@@ -234,30 +216,8 @@ password: hashedPassword, // Replace the original password with the hashed one
                 { email: userEmail },
                 { $set: { password: hashedPassword } }
             );
-            res.sendFile(path.join(__dirname, '/../front/popupEmail.html'));
-
+            res.render("admin")
 })
-/*
-app.post("/login", async (req, res) => {
-    try {
-        const check = await collection.findOne({ name: req.body.username });
-        if (!check) {
-            res.send("User name cannot be found")
-        }
-        // Compare the hashed password from the database with the plaintext password
-        const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
-        if (!isPasswordMatch) {
-            res.send("wrong Password");
-        }
-        else {
-            res.render("workspace");
-        }
-    }
-    catch {
-        res.send("wrong Details");
-    }
-});
-*/
 //define the routes(when you type localhost:5000 you get the specific login page and not 404)
 app.get("",checkNotAuthenticated, (req, res) => {
     res.render("login");
@@ -272,7 +232,13 @@ app.get("/workspace",checkAuthenticated, (req, res) => {
     res.render("workspace",{name: req.user.firstName,picPath: req.user.picPath});//besides the workspace page we will also render the first name as a username 
 });
 app.get("/admin", (req, res) => {
-    res.render("adminn");
+    res.render("admin");
+});
+app.get("/Discord_final", (req, res) => {
+    res.render("Discord_final");
+});
+app.get("/home", (req, res) => {
+    res.render("home");
 });
 //authentification
 function checkAuthenticated(req, res, next){

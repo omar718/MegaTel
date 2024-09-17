@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup design - easy turorials </title>
+    <link rel="stylesheet" href="popup_trsp.css">
+</head>
+<body>
+    <div class="contrainer">
+        <div class="popup" id="popup">
+            <img src="404-tick.png" >
+            <h2>thank you!</h2>
+            <p>An email has been sent successfully .</p>
+            <button type="button" onclick="closepopup()">Ok</button>
+
+        </div>
+
+    </div>
+<script>
+let popup = document.getElementById("popup")
+function openpopup(){
+    popup.classList.add("open-popup");
+}
+function closepopup(){
+    popup.classList.remove("open-popup");
+}
+</script>
+    
+</body>''
+</html>

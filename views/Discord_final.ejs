@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- External JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Internal Styles -->
+    <style>
+        #timer { font-size: 24px; text-align: center; margin-top: 50px; }
+        #link { display: none; text-align: center; margin-top: 20px; }
+        .home__img {
+            position: relative;
+            width: 250px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 125px 125px 12px 12px;
+            display: inline-flex;
+            align-items: flex-end;
+            bottom: -1.5rem;
+            box-shadow: 0 16px 32px rgba(228, 66%, 25%, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Photo column -->
+                    <div class="col-md-6">
+                        <img src="logo orange.png" style="width:120px; height:120px;" class="img-fluid" alt="Logo">
+                        MegaTel
+                        <img src="cute-robotp.png" style="width:532px; height:400px;" class="img-fluid" alt="Cute Robot">
+                    </div>
+                    <!-- Text column -->
+                    <div class="col-md-6">
+                        <h1 class="home__title"><br><br>Please, can you check that you are connected to Discord</h1>
+                        <h4 class="home__description">We are waiting for you.</h4>
+                        <div id="timer" style="color: darkgray;">
+                            If you didn't join yet: wait <span id="countdown">10</span><br><br><br><br>
+                        </div>
+                        <div id="link">
+                            <a href="login">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Timer Script -->
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    document.getElementById('link').style.display = 'block';
+                    document.getElementById('timer').style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var tenSeconds = 10,
+                display = document.querySelector('#countdown');
+            startTimer(tenSeconds, display);
+            window.location.href = "discord://";
+        };
+    </script>
+
+    <!-- Main JS -->
+    <script src="main.js"></script>
+</body>
+</html>

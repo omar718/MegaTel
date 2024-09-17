@@ -118,8 +118,8 @@
                   <td>omar</td>
                   <td>zroud</td>
                   <td>
-                    <form action="/adminn" method="POST">
-                      <input type="submit" class="submit" value="Send Email" >
+                    <form action="/admin" method="POST">
+                      <input type="submit" class="submit" value="Send Email" onclick="redirectToPopup()" >
                       <button type="submit">
                         <ion-icon name="trash-outline"></ion-icon>Delete User
                       </button>
@@ -132,7 +132,18 @@
         </div>
       </div>
     </div>
-
+          <div class="popup" id="popup">
+              <img src="check.jpg" >
+              <h2>thank you!</h2>
+              <p>An email has been sent successfully .</p>
+              <button type="button" onclick="closepopup()">Ok</button>
+  
+          </div>
+  
+      </div>
+  
+      
+  </body>
     <!-- =========== Scripts =========  -->
     <script src="assets/js/main.js"></script>
 
@@ -145,5 +156,25 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    
+    <script>
+      let popup = document.getElementById("popup")
+      function redirectToPopup(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+      
+      
+       }
+       function openpopup(){
+          popup.classList.add("open-popup");
+      }
+      function closepopup(){
+          popup.classList.remove("open-popup");
+      }
+      
+    
+       
+    </script>
+    
   </body>
 </html>
